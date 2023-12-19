@@ -154,36 +154,29 @@ def ejecutar_metodos_y_graficar(objeto, titulo):
     Ejecuta los métodos de un objeto de métodos y grafica los resultados.
     """
     metodos = [metodo for metodo in dir(objeto) if callable(getattr(objeto, metodo)) and not metodo.startswith("__")]
+    if metodos:
+        metodos.pop(-1)  # Eliminar el último método si no es necesario
 
-    plt.figure(figsize=(10, 6))
+    n_metodos = len(metodos)
+    n_cols = 2  # Por ejemplo, puedes ajustar esto según tus preferencias
+    n_rows = (n_metodos + n_cols - 1) // n_cols  # Calcular el número de filas necesario
 
-    for metodo in metodos:
+    plt.figure(figsize=(10 * n_cols, 6 * n_rows))  # Ajustar el tamaño de la figura completa
 
-        solucionador = getattr(objeto, metodo)
-        print(solucionador)
+    # Ejecutar cada método y crear un subplot para cada uno
+    for i, metodo in enumerate(metodos):
+        print(metodo)
+        x, y = getattr(objeto, metodo)()
 
-    xi = objeto.xi
-    xf = objeto.xf
-    n = objeto.n
-    h = objeto.h
-    y_actual = objeto.yi
+        ax = plt.subplot(n_rows, n_cols, i + 1)  # Crear un subplot en la posición i+1
 
-    x_valores = np.linspace(xi, xf, n+1)
-    y_valores = []
+        ax.plot(x, y, label=metodo)
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+        ax.set_title(titulo)
+        ax.legend()
 
-    for x in x_valores[:-1]:
-        y_valores.append(y_actual)
-        y_actual += h * objeto.funcion(x, y_actual)
-    y_valores.append(y_actual)  # Agregando el último valor de y
-    print(metodo)
-    # Ahora, 'x_valores' y 'y_valores' contienen los puntos calculados
-    plt.plot(x_valores, y_valores, label=metodo)
-
-
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.title(titulo)
-    plt.legend()
+    plt.tight_layout()  # Ajusta automáticamente los subplots para que encajen en la figura
     plt.show()
 
 def graficar_segundo_orden(x, u, v):
