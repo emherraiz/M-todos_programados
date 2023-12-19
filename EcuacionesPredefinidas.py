@@ -16,16 +16,6 @@ class EcuacionesOrden1:
         return (1 + 4 * x * y) / (3 * x**2)
 
     @staticmethod
-    def f_dx(x, y):
-        """Derivada parcial en x de f_2."""
-        return (4 * y) / (3 * x**2) - (8 * x * y) / (3 * x**3)
-
-    @staticmethod
-    def f_dy(x, y):
-        """Derivada parcial en y de f_2."""
-        return 4 / (3 * x)
-
-    @staticmethod
     def f_3(x, y):
         """Otra ecuación diferencial de primer orden."""
         return (2 - 3 * x - y) / (x - 1)

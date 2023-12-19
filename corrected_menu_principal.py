@@ -2,8 +2,6 @@ from EcuacionesPredefinidas import EcuacionesOrden1, EcuacionesOrden2
 from Metodos_optimizados import MetodosEcuacionesOrden1, MetodosEcuacionesOrden2
 import numpy as np
 import matplotlib.pyplot as plt
-import os
-import math
 
 def main():
     """
