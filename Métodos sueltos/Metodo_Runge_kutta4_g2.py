@@ -31,6 +31,13 @@ def polinomio_jacobi(x, u, v, n = 1, alfa = 1.5, beta = 1):
     return v, - ((v*(beta - alfa - x*(2 + alfa + beta)) + u*(n*(n + alfa + beta + 1))) / (1 - x**2))
 
 
+def nave_gia(x, u, v, a):
+    return v, 
+
+
+
+
+
 funcion = polinomio_jacobi
 
 # Valores iniciales

@@ -30,6 +30,17 @@ class EcuacionesOrden1:
         """Ecuación diferencial con términos lineales."""
         return (x + y) / (x - y)
 
+    def f_6(x, y):
+        """Ecuación diferencial del examen"""
+        # Datos:
+            # M = 10g
+            # m = 0.1 g/s
+            # k = 0.5 g/s
+            # g = 9.8 m/s^2
+            # 0 <= t <= 100 s
+        # Numerador: k - m ---> 0.5 - 0.1 = 0.4
+        return 9.8 - y*(.4/(10 - .1*x))
+
 
 class EcuacionesOrden2:
     """

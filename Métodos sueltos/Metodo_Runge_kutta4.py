@@ -7,6 +7,8 @@ def funcion(x, y):
 
 
 
+
+
 # Valores iniciales
 xi = float(input('Introduce el valor inicial de x:\n> '))
 xf = float(input('Introduce el valor final de nuestra región de x:\n> '))

@@ -29,7 +29,8 @@ def manejar_primer_orden():
         "2 - y_prima = (1 + 4*x*y) / (3*x**2)",
         "3 - y_prima = (2 - 3*x - y) / (x - 1)",
         "4 - y_prima = (x*y)/(x**2 + y**2)",
-        "5 - y_prima = (x + y) / (x - y)"
+        "5 - y_prima = (x + y) / (x - y)",
+        "6 - y_prima = g - y*(k - m) / (M - m*t)"
     ]
     print('\n'.join(opciones_funcion))
     opcion_funcion = int(input('>> '))
@@ -39,7 +40,8 @@ def manejar_primer_orden():
         2: EcuacionesOrden1.f_2,
         3: EcuacionesOrden1.f_3,
         4: EcuacionesOrden1.f_4,
-        5: EcuacionesOrden1.f_5
+        5: EcuacionesOrden1.f_5,
+        6: EcuacionesOrden1.f_6
     }
 
     funcion = funciones.get(opcion_funcion)
